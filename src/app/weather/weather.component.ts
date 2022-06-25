@@ -9,6 +9,7 @@ import { WeatherService } from '../weather.service';
   styleUrls: ['./weather.component.css'],
 })
 export class WeatherComponent implements OnInit {
+  isFeatching: boolean = false;
   weather: Weather | undefined;
 
   constructor(private weatherService: WeatherService) {}
@@ -16,9 +17,15 @@ export class WeatherComponent implements OnInit {
   ngOnInit(): void {}
 
   search(city: string): void {
-    this.weatherService.getWeather(city).subscribe((weather) => {
-      this.weather = weather;
-      console.log(this.weather);
-    });
+    this.isFeatching = true;
+    this.weatherService.getWeather(city).subscribe(
+      (weather) => {
+        this.weather = weather;
+        this.isFeatching = false;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }
