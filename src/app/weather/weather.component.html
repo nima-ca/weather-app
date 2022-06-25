@@ -7,7 +7,7 @@
   />
   <mat-icon matSuffix (click)="search(cityCtrl.value)">search</mat-icon>
 </mat-form-field>
-<mat-card *ngIf="weather">
+<mat-card *ngIf="weather && !isFeatching && !hasError">
   <mat-card-header>
     <mat-card-title
       >{{ weather.name }}, {{ weather.sys.country }}</mat-card-title
@@ -26,3 +26,18 @@
     <p>Wind: {{ weather.wind.speed }} m/s</p>
   </mat-card-content>
 </mat-card>
+
+<mat-card *ngIf="hasError && !isFeatching">
+  <mat-card-title
+    [ngStyle]="{ color: 'red', fontSize: '20px', marginBottom: '10px' }"
+  >
+    {{ errorMessage.message | uppercase }}
+  </mat-card-title>
+  <mat-card-subtitle> status: {{ errorMessage.cod }} </mat-card-subtitle>
+</mat-card>
+
+<mat-progress-spinner
+  *ngIf="isFeatching && !hasError"
+  diameter="40"
+  mode="indeterminate"
+></mat-progress-spinner>
