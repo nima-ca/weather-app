@@ -9,6 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [AppComponent, WeatherComponent],
@@ -20,6 +21,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatIconModule,
     MatInputModule,
     MatProgressSpinnerModule,
+    MatToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

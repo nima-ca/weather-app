@@ -19,3 +19,9 @@ h1 {
   text-align: center;
   font-size: 2.5em;
 }
+
+@media screen and (max-width: 768px) {
+  mat-form-field {
+    width: 50%;
+  }
+}

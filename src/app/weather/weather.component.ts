@@ -28,7 +28,6 @@ export class WeatherComponent implements OnInit {
         this.isFeatching = false;
       },
       error: (error) => {
-        console.log(error);
         this.hasError = true;
         this.isFeatching = false;
         this.errorMessage = error.error;
